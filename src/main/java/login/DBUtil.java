@@ -6,11 +6,10 @@ import java.sql.SQLException;
 
 public class DBUtil {
 
-    private static final String URL =
-        "jdbc:mysql://218.156.143.205:3306/login_db?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true";
-
-    private static final String USER = "root";
-    private static final String PASSWORD = "1234";
+    // 👉 Render 환경변수에서 가져옴
+    private static final String URL = System.getenv("DB_URL");
+    private static final String USER = System.getenv("DB_USER");
+    private static final String PASSWORD = System.getenv("DB_PASSWORD");
 
     public static Connection getConnection() throws SQLException {
         try {
