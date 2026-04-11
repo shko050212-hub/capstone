@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 public class DBUtil {
 
-    // 👉 Render 환경변수에서 가져옴
     private static final String URL = System.getenv("DB_URL");
     private static final String USER = System.getenv("DB_USER");
     private static final String PASSWORD = System.getenv("DB_PASSWORD");
@@ -17,7 +16,6 @@ public class DBUtil {
         } catch (ClassNotFoundException e) {
             throw new SQLException("드라이버 로드 실패", e);
         }
-
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 }
