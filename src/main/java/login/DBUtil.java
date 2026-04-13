@@ -7,20 +7,19 @@ import java.sql.SQLException;
 public class DBUtil {
 
     private static final String URL =
-        "jdbc:mysql://capstone-db.cfw4cygk4dks.ap-northeast-2.rds.amazonaws.com:3306/capstone?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true";
+        ""jdbc:mysql://capstone-db.cfw4cygk4dks.ap-northeast-2.rds.amazonaws.com:3306/capstone?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true";
+    private static final String USER = "YOUR_USER";
+    private static final String PASSWORD = "YOUR_PASSWORD";
 
-    private static final String USER = "admin";
-    private static final String PASSWORD = "12341234";
-
-    public static Connection getConnection() throws SQLException {
+    static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            throw new SQLException("드라이버 로드 실패", e);
+            throw new RuntimeException("MySQL JDBC Driver 로드 실패", e);
         }
+    }
 
-        System.out.println("현재 DB URL: " + URL);
-
+    public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 }
