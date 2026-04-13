@@ -1,3 +1,6 @@
+cd ~/capstone
+
+cat > Dockerfile <<'EOF'
 FROM tomcat:9.0-jdk17
 
 RUN rm -rf /usr/local/tomcat/webapps/*
@@ -15,3 +18,4 @@ RUN javac -cp "/usr/local/tomcat/lib/servlet-api.jar:/usr/local/tomcat/webapps/R
 EXPOSE 8080
 
 CMD ["catalina.sh", "run"]
+EOF
