@@ -13,8 +13,9 @@ COPY GS_capstone-main/project1/src/main/java/ /tmp/java/
 
 RUN javac -cp "/usr/local/tomcat/lib/servlet-api.jar:/usr/local/tomcat/webapps/ROOT/WEB-INF/lib/*" \
     -d /usr/local/tomcat/webapps/ROOT/WEB-INF/classes \
-    /tmp/java/login/*.java
-
+    /tmp/java/login/DBUtil.java \
+    /tmp/java/login/PasswordUtil.java \
+    /tmp/java/login/UserService.java
 EXPOSE 8080
 
 CMD ["catalina.sh", "run"]
