@@ -20,7 +20,7 @@ public class UserService {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            throw new RuntimeException("isUsernameExists 오류: " + e.getMessage(), e);
         }
     }
 
@@ -42,7 +42,7 @@ public class UserService {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            throw new RuntimeException("registerUser 오류: " + e.getMessage(), e);
         }
     }
 
@@ -64,6 +64,7 @@ public class UserService {
 
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException("loginUser 오류: " + e.getMessage(), e);
         }
 
         return false;
