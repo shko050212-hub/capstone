@@ -7,10 +7,10 @@ import java.sql.SQLException;
 public class DBUtil {
 
     private static final String URL =
-        "jdbc:mysql://localhost:3306/login_db?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true";
+        "jdbc:mysql://capstone-db.cfw4cygk4dks.ap-northeast-2.rds.amazonaws.com:3306/capstone?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true";
 
-    private static final String USER = "root";
-    private static final String PASSWORD = "1234";
+    private static final String USER = "admin";
+    private static final String PASSWORD = "12341234";
 
     public static Connection getConnection() throws SQLException {
         try {
