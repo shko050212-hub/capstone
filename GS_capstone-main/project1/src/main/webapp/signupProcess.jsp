@@ -9,13 +9,23 @@ String username = request.getParameter("username");
 String password = request.getParameter("password");
 
 boolean result = false;
+String debugMessage = "";
 
-if (name != null && username != null && password != null
-        && !name.trim().isEmpty()
-        && !username.trim().isEmpty()
-        && !password.trim().isEmpty()) {
+try {
+    if (name != null && username != null && password != null
+            && !name.trim().isEmpty()
+            && !username.trim().isEmpty()
+            && !password.trim().isEmpty()) {
 
-    result = UserService.registerUser(name.trim(), username.trim(), password);
+        result = UserService.registerUser(name.trim(), username.trim(), password);
+        if (!result) {
+            debugMessage = "registerUser가 false를 반환했습니다.";
+        }
+    } else {
+        debugMessage = "입력값이 비어 있습니다.";
+    }
+} catch (Exception e) {
+    debugMessage = e.toString();
 }
 %>
 
@@ -31,7 +41,7 @@ if (name != null && username != null && password != null
     alert("회원가입 완료!");
     location.href = "login.jsp";
 <% } else { %>
-    alert("회원가입 실패");
+    alert("회원가입 실패: <%= debugMessage.replace("\"", "'") %>");
     location.href = "signup.jsp";
 <% } %>
 </script>
