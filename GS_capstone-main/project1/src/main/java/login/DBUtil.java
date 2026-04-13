@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DBUtil {
 
-    private static final String URL =
-        "jdbc:mysql://capstone-db.cfw4cygk4dks.ap-northeast-2.rds.amazonaws.com:3306/login_db?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true";
-
+   private static final String URL =
+    "jdbc:mysql://capstone-db.cfw4cygk4dks.ap-northeast-2.rds.amazonaws.com:3306/login_db?serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true";
+    
     private static final String USER = "testdb";
     private static final String PASSWORD = "12341234";
 
