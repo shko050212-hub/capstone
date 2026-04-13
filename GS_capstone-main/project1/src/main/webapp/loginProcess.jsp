@@ -8,38 +8,14 @@ String username = request.getParameter("username");
 String password = request.getParameter("password");
 
 boolean result = UserService.loginUser(username, password);
+%>
 
-if (result) {
-%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>로그인 성공</title>
-</head>
-<body>
-    <script>
-        alert("환영합니다.");
-        location.href = "welcome.jsp";
-    </script>
-</body>
-</html>
-<%
-} else {
-%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>로그인 실패</title>
-</head>
-<body>
-    <script>
-        alert("잘못된 입력입니다.");
-        location.href = "login.jsp";
-    </script>
-</body>
-</html>
-<%
-}
-%>
+<script>
+<% if(result){ %>
+    alert("로그인 성공!");
+    location.href="welcome.jsp";
+<% } else { %>
+    alert("아이디 또는 비밀번호가 틀립니다.");
+    location.href="login.jsp";
+<% } %>
+</script>
