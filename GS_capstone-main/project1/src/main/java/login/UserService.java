@@ -13,14 +13,12 @@ public class UserService {
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, username);
-
             try (ResultSet rs = stmt.executeQuery()) {
                 return rs.next();
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("isUsernameExists 오류: " + e.getMessage(), e);
+            throw new RuntimeException("isUsernameExists 오류", e);
         }
     }
 
@@ -41,8 +39,7 @@ public class UserService {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("registerUser 오류: " + e.getMessage(), e);
+            throw new RuntimeException("registerUser 오류", e);
         }
     }
 
@@ -62,11 +59,11 @@ public class UserService {
                 }
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("loginUser 오류: " + e.getMessage(), e);
-        }
+            return false;
 
-        return false;
+        } catch (Exception e) {
+            throw new RuntimeException("loginUser 오류", e);
+        }
     }
 }
+
