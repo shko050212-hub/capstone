@@ -2,17 +2,7 @@ FROM tomcat:9.0-jdk17
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-COPY GS_capstone-main/project1/src/main/webapp/ /usr/local/tomcat/webapps/ROOT/
-
-RUN mkdir -p /usr/local/tomcat/webapps/ROOT/WEB-INF/classes
-
-COPY GS_capstone-main/project1/src/main/java/ /tmp/java/
-
-RUN javac -cp "/usr/local/tomcat/lib/servlet-api.jar:/usr/local/tomcat/webapps/ROOT/WEB-INF/lib/*" \
-    -d /usr/local/tomcat/webapps/ROOT/WEB-INF/classes \
-    /tmp/java/login/DBUtil.java \
-    /tmp/java/login/PasswordUtil.java \
-    /tmp/java/login/UserService.java
+COPY project1.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
 
