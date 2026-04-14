@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>회원가입 처리</title>
+    <meta charset="UTF-8">
+    <title>회원가입 처리</title>
 </head>
 <body>
 <h2>회원가입 처리 결과</h2>
+
 <%
 request.setCharacterEncoding("UTF-8");
 
@@ -27,7 +28,7 @@ try {
         out.println("<p style='color:green;'>회원가입 성공</p>");
         out.println("<a href='login.jsp'>로그인으로 이동</a>");
     } else {
-        out.println("<p style='color:red;'>회원가입 실패: DB insert 실패 또는 중복/연결 문제</p>");
+        out.println("<p style='color:red;'>회원가입 실패: insert 실패 또는 중복/DB 문제</p>");
     }
 } catch (Exception e) {
     out.println("<p style='color:red;'>예외 발생</p>");
@@ -36,5 +37,7 @@ try {
     out.println("</pre>");
 }
 %>
+
 </body>
 </html>
+
